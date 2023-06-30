@@ -1,0 +1,22 @@
+version: 1.0
+configuration:
+  has_webserver: true
+  readonly_paths:
+    - src/test/*
+  scoring:
+    command: mvn clean test
+    files:
+      - target/surefire-reports/TEST-com.hackerrank.whc.ApplicationTests.xml
+  ide_config:
+    default_open_files:
+      - src/main/java/com/hackerrank/whc/Application.java
+      - path: com/hackerrank/whc/controller/CoachController.java
+        type: java
+      - path: com/hackerrank/whc/controller/CustomerController.java
+        type: java
+    project_menu:
+      run: mvn clean spring-boot:run
+      install: mvn clean install
+      test: mvn clean test
+
+

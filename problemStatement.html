@@ -1,0 +1,203 @@
+<h2 id="data">Data</h2>
+
+<p>Example of a Event data JSON object:</p>
+
+<pre><code class="json language-json">{
+	"id": 2,
+	"height": 50,
+	"weight": 42,
+	"coach": {
+	    "id": 2,
+	    "name": "John"
+	}
+}
+</code></pre>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>Here you are provided a events database where you have to build a Spring Boot application with two entities: `Coach`
+	and `Customer`.
+	Each `Customer` has an ID, height, and weight, while a `Coach` has an ID, name, and a set of customers.
+	One coach can have multiple customers.</p>
+
+
+<h3>Create a Customer</h3>
+<ul>
+	<li>Method: POST</li>
+	<li>Endpoint: /api/customer</li>
+	<li>Request Body: JSON</li>
+	<code>
+        {
+		"height": 170,
+		"weight": 65,
+		"coach": {
+			id: 1
+			"name": "John"
+		}
+        }
+    </code>
+	<li>Response:
+		<ul>
+			<li>Status Code: 200 (OK)</li>
+			<li>Response Body: JSON</li>
+			<code>
+			{
+				"id": 1,
+				"height": 170,
+				"weight": 65,
+				"coach": {
+					id: 1
+					"name": "John"
+				}
+			}
+            </code>
+		</ul>
+	</li>
+</ul>
+
+<h3>Get All Customers</h3>
+<ul>
+	<li>Method: GET</li>
+	<li>Endpoint: /api/customer</li>
+	<li>Response:
+		<ul>
+			<li>Status Code: 200 (OK)</li>
+			<li>Response Body: JSON Array</li>
+			<code>
+                [                
+			{
+		                "id": 1, 
+		                "height": 170,
+		                "weight": 65,
+				"coach": {
+					id: 1
+					"name": "John"
+				}
+	                },
+	                {                
+				"id": 2,                
+				"height": 160,                
+				"weight": 55,
+				"coach": {
+					id: 1
+					"name": "John"
+				}                
+			}                
+		]
+            </code>
+		</ul>
+	</li>
+</ul>
+
+<h3>Get a Customer by ID</h3>
+<ul>
+    <li>Method: GET</li>
+    <li>Endpoint: /api/customers/{id}</li>
+    <li>Response:
+        <ul>
+            <li>Status Code: 200 (OK)</li>
+            <li>Response Body: JSON</li>
+            <code>
+                {
+                "id": 1,
+                "height": 170,
+                "weight": 65
+                }
+            </code>
+        </ul>
+    </li>
+</ul>
+
+<h3>Create a Coach</h3>
+<ul>
+	<li>Method: POST</li>
+	<li>Endpoint: /api/coache</li>
+	<li>Request Body: JSON</li>
+	<code>
+        {
+        "name": "John Doe"
+        }
+    </code>
+	<li>Response:
+		<ul>
+			<li>Status Code: 200 (OK)</li>
+			<li>Response Body: JSON</li>
+			<code>
+                {
+                "id": 1,
+                "name": "John Doe"
+                }
+            </code>
+		</ul>
+	</li>
+</ul>
+<h3>Get a Coach by ID</h3>
+<ul>
+	<li>Method: GET</li>
+	<li>Endpoint: /api/coach/{id}</li>
+	<li>Response:
+		<ul>
+			<li>Status Code: 200 (OK)</li>
+			<li>Response Body: JSON</li>
+			<code>
+                {
+                "id": 1,
+                "name": "John Doe"
+                }
+            </code>
+		</ul>
+	</li>
+</ul>
+<h3>Get All Coaches</h3>
+<ul>
+	<li>Method: GET</li>
+	<li>Endpoint: /api/coach</li>
+	<li>Response:
+		<ul>
+			<li>Status Code: 200 (OK)</li>
+			<li>Response Body: JSON Array</li>
+			<code>
+                [                
+			{                
+				"id": 1,                
+				"name": "John Doe"                
+			},                
+			{                
+				"id": 2,                
+				"name": "Jane Smith"                
+			}                
+		]
+            </code>
+		</ul>
+	</li>
+</ul>
+
+
+
+
+<p><code>Test writing</code>
+	In addition to implementing the REST endpoints, you are supposed to write several(at least 3) unit tests to test
+	your implementation.</p>
+
+<h2 id="commands">Commands</h2>
+
+<ul>
+	<li>run:</li>
+</ul>
+
+<pre><code class="bash language-bash">mvn clean spring-boot:run
+</code></pre>
+
+<ul>
+	<li>install:</li>
+</ul>
+
+<pre><code class="bash language-bash">mvn clean install
+</code></pre>
+
+<ul>
+	<li>test:</li>
+</ul>
+
+<pre><code class="bash language-bash">mvn clean test
+</code></pre>
